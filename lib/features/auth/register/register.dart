@@ -1,6 +1,7 @@
 import 'package:evently_offline_sun/core/resources/assets_manager.dart';
 import 'package:evently_offline_sun/core/resources/colors_manager.dart';
 import 'package:evently_offline_sun/core/resources/validator.dart';
+import 'package:evently_offline_sun/core/routes_manager/routes_manager.dart';
 import 'package:evently_offline_sun/core/widgets/custom_elevated-button.dart';
 import 'package:evently_offline_sun/core/widgets/custom_text_button.dart';
 import 'package:evently_offline_sun/core/widgets/custom_text_form_field.dart';
@@ -118,7 +119,9 @@ class _RegisterState extends State<Register> {
                       "Already Have Account ?",
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
-                    CustomTextButton(text: "Login", onTap: () {}),
+                    CustomTextButton(text: "Login", onTap: () {
+                      Navigator.pushReplacementNamed(context, RoutesManager.login);
+                    }),
                   ],
                 ),
               ],

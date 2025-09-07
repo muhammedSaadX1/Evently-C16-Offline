@@ -5,9 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 import '../resources/colors_manager.dart';
 
 class CustomTextButton extends StatelessWidget {
-  const CustomTextButton({super.key, required this.text, required this.onTap});
+  const CustomTextButton({super.key, required this.text, required this.onTap, this.textAlign = TextAlign.center});
   final String text;
   final VoidCallback onTap;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +16,7 @@ class CustomTextButton extends StatelessWidget {
       onTap: onTap,
       child: Text(
        text,
+        textAlign:textAlign,
         style: GoogleFonts.inter(
             fontSize: 16.sp,
             color: ColorsManager.blue,
