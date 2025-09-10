@@ -68,6 +68,26 @@ class ThemeManager{
       ),
     ),
     textTheme: TextTheme(
+      headlineSmall:  GoogleFonts.inter(
+        fontSize: 14.sp,
+        fontWeight: FontWeight.w400,
+        color: ColorsManager.white,
+      ),
+      headlineLarge: GoogleFonts.inter(
+        fontSize: 24.sp,
+        fontWeight: FontWeight.w700,
+        color: ColorsManager.white,
+      ),
+      headlineMedium:  GoogleFonts.inter(
+        fontSize: 14.sp,
+        fontWeight: FontWeight.bold,
+        color: ColorsManager.blue,
+      ),
+      titleSmall:  GoogleFonts.inter(
+        fontSize: 14.sp,
+        fontWeight: FontWeight.bold,
+        color: ColorsManager.black1C,
+      ),
       bodySmall: GoogleFonts.inter(fontSize: 16.sp,color: ColorsManager.black10, fontWeight: FontWeight.w500 ),
     )
   );
