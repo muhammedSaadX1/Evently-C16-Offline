@@ -88,6 +88,7 @@ class ThemeManager{
         fontWeight: FontWeight.bold,
         color: ColorsManager.black1C,
       ),
+      labelSmall: GoogleFonts.inter(fontSize: 16.sp, fontWeight: FontWeight.w500, color: ColorsManager.black1C),
       labelMedium:GoogleFonts.inter(fontSize: 20.sp, fontWeight: FontWeight.bold, color: ColorsManager.black1C) ,
       displayMedium:GoogleFonts.inter(fontSize: 20.sp, fontWeight: FontWeight.bold, color: ColorsManager.blue) ,
       bodySmall: GoogleFonts.inter(fontSize: 16.sp,color: ColorsManager.black10, fontWeight: FontWeight.w500 ),

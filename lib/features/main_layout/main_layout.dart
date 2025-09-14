@@ -1,4 +1,5 @@
 import 'package:evently_offline_sun/core/resources/colors_manager.dart';
+import 'package:evently_offline_sun/core/routes_manager/routes_manager.dart';
 import 'package:evently_offline_sun/features/main_layout/tabs/favourite/favourite_tab.dart';
 import 'package:evently_offline_sun/features/main_layout/tabs/home/home_tab.dart';
 import 'package:evently_offline_sun/features/main_layout/tabs/map/map_tab.dart';
@@ -29,7 +30,9 @@ class _MainLayoutState extends State<MainLayout> {
 
   Widget _buildFab(){
     return  FloatingActionButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, RoutesManager.createEvent);
+      },
       child: Icon(Icons.add),
     );
   }
