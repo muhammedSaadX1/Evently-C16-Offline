@@ -7,7 +7,7 @@ extension DateTimeEx on DateTime{
   }
 
   String get viewMonth{
-    DateFormat formatter = DateFormat("MMMM");
+    DateFormat formatter = DateFormat("MMM");
     return formatter.format(this);
   }
 }
