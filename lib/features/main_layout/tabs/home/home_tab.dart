@@ -27,7 +27,7 @@ class _HomeTabState extends State<HomeTab> {
           width: double.infinity,
 
           decoration: BoxDecoration(
-            color: ColorsManager.blue,
+            color: Theme.of(context).primaryColor,
 
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(14.r)),
           ),
@@ -51,7 +51,7 @@ class _HomeTabState extends State<HomeTab> {
                         SizedBox(height: 8.h),
                         Row(
                           children: [
-                            Icon(Icons.location_on, color: ColorsManager.white),
+                            Icon(Icons.location_on, color: ColorsManager.ofWhite),
 
                             SizedBox(width: 4.w),
                             Text(
@@ -71,6 +71,7 @@ class _HomeTabState extends State<HomeTab> {
                     InkWell(
                       onTap: () {},
                       child: Card(
+                        color: ColorsManager.ofWhite,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
