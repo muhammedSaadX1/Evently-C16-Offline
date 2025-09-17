@@ -2,6 +2,7 @@ import 'package:evently_offline_sun/core/resources/colors_manager.dart';
 import 'package:evently_offline_sun/core/widgets/custom_tab_bar.dart';
 import 'package:evently_offline_sun/core/widgets/tab_item.dart';
 import 'package:evently_offline_sun/features/main_layout/tabs/home/event_item.dart';
+import 'package:evently_offline_sun/l10n/app_localizations.dart' show AppLocalizations;
 import 'package:evently_offline_sun/models/category_model.dart';
 import 'package:evently_offline_sun/models/event_model.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,8 @@ class _HomeTabState extends State<HomeTab> {
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+
     return Column(
       children: [
         Container(
@@ -41,7 +44,7 @@ class _HomeTabState extends State<HomeTab> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Welcome Back ✨",
+                          "${appLocalizations.welcome_message} ✨",
                           style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         Text(
@@ -86,7 +89,7 @@ class _HomeTabState extends State<HomeTab> {
               ),
               //   SizedBox(height: 8,),
               CustomTabBar(
-                categories: CategoryModel.categoriesWithAll,
+                categories: CategoryModel.getCategoriesWithAll(context),
                 selectedBgColor: ColorsManager.whiteBlue,
                 selectedFgColor: ColorsManager.blue,
                 unSelectedBgColor: Colors.transparent,
@@ -96,7 +99,7 @@ class _HomeTabState extends State<HomeTab> {
           ),
         ),
        Expanded(child: ListView.separated(
-           itemBuilder: (context, index)=> EventItem(event: EventModel(category: CategoryModel.categoriesWithAll[3], title: "Meeting for Updating The Development Method ", description: "Meeting for Updating The Development Method ", dateTime: DateTime.now(), timeOfDay: TimeOfDay.now()),),
+           itemBuilder: (context, index)=> EventItem(event: EventModel(category: CategoryModel.getCategoriesWithAll(context)[3], title: "Meeting for Updating The Development Method ", description: "Meeting for Updating The Development Method ", dateTime: DateTime.now(), timeOfDay: TimeOfDay.now()),),
            separatorBuilder: (context, index)=>SizedBox(height: 16.h,),
            itemCount: 20))
       ],
