@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DropDownItem extends StatelessWidget {
-  const DropDownItem({super.key, required this.label, required this.selectedItem, required this.menuItems});
+  const DropDownItem({super.key, required this.label, required this.selectedItem, required this.menuItems, required this.onChange});
   final String label;
   final String selectedItem;
   final List<String> menuItems;
+  final void Function(String?) onChange;
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +37,7 @@ class DropDownItem extends StatelessWidget {
                       child: Text(value),
                     );
                   }).toList(),
-                  onChanged: (newTheme) {
-
-                  },
+                  onChanged: onChange,
                 )
               ],
             ),

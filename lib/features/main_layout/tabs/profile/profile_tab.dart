@@ -2,9 +2,12 @@ import 'package:evently_offline_sun/core/resources/assets_manager.dart';
 import 'package:evently_offline_sun/core/resources/colors_manager.dart';
 import 'package:evently_offline_sun/features/main_layout/tabs/profile/drop_down_item.dart';
 import 'package:evently_offline_sun/l10n/app_localizations.dart' show AppLocalizations;
+import 'package:evently_offline_sun/providers/language_provider.dart';
+import 'package:evently_offline_sun/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class ProfileTab extends StatelessWidget {
   const ProfileTab({super.key});
@@ -12,6 +15,8 @@ class ProfileTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+    LanguageProvider languageProvider = Provider.of<LanguageProvider>(context);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,14 +64,20 @@ class ProfileTab extends StatelessWidget {
         ),
         SizedBox(height: 24.h),
         DropDownItem(
+          onChange: (newTheme){
+            themeProvider.changeAppTheme(newTheme == appLocalizations.light? ThemeMode.light : ThemeMode.dark);
+          },
           label: appLocalizations.theme,
-          selectedItem: appLocalizations.light,
+          selectedItem:themeProvider.isDark ?  appLocalizations.dark: appLocalizations.light,
           menuItems: [appLocalizations.light, appLocalizations.dark],
         ),
         SizedBox(height: 16),
         DropDownItem(
+          onChange: (newLang){
+            languageProvider.changeAppLanguage(newLang == "English" ?"en":"ar");
+          },
           label:appLocalizations.language,
-          selectedItem: "English",
+          selectedItem: languageProvider.isEnglish ? "English": "Arabic",
           menuItems: ["English", "Arabic"],
         ),
         Spacer(flex: 6,),
